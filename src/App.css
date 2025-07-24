@@ -1,0 +1,230 @@
+.app {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.map-container {
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+/* Custom marker styles */
+.custom-marker {
+  background: transparent !important;
+  border: none !important;
+}
+
+.supply-marker {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.supply-marker.active {
+  animation: pulse 2s infinite;
+  transform: scale(1.1);
+  border-color: rgba(255, 255, 255, 0.8);
+}
+
+.marker-icon {
+  font-size: 20px;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1.1); }
+  50% { transform: scale(1.2); }
+}
+
+/* UI Panels */
+.title-card {
+  position: fixed;
+  top: 40px;
+  left: 40px;
+  z-index: 1000;
+  min-width: 300px;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #60A5FA, #A78BFA, #F472B6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.control-panel {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 1000;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.progress-container {
+  position: fixed;
+  bottom: 40px;
+  left: 40px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-width: 200px;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #34D399, #60A5FA, #A78BFA);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.progress-text {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.flow-panel {
+  position: fixed;
+  top: 50%;
+  right: 40px;
+  transform: translateY(-50%);
+  z-index: 1000;
+  min-width: 250px;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.flow-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  transition: all 0.3s ease;
+  border-left: 3px solid transparent;
+}
+
+.flow-item.pending {
+  background: rgba(255, 255, 255, 0.05);
+  opacity: 0.6;
+}
+
+.flow-item.active {
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.2), rgba(167, 139, 250, 0.2));
+  border-left-color: #60A5FA;
+  box-shadow: 0 4px 15px rgba(96, 165, 250, 0.3);
+}
+
+.flow-item.completed {
+  background: linear-gradient(135deg, rgba(52, 211, 153, 0.2), rgba(34, 197, 94, 0.2));
+  border-left-color: #34D399;
+}
+
+.flow-icon {
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.flow-content h4 {
+  margin-bottom: 4px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.flow-content p {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.tier-display {
+  position: fixed;
+  top: 40px;
+  right: 40px;
+  z-index: 1000;
+  text-align: center;
+  min-width: 200px;
+}
+
+.tier-display h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #60A5FA;
+}
+
+/* Buttons */
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #60A5FA, #A78BFA);
+  color: white;
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.speed-control {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .title-card, .control-panel, .progress-container, .flow-panel, .tier-display {
+    position: absolute;
+    bottom: auto;
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .title-card { top: 20px; }
+  .tier-display { top: 80px; }
+  .flow-panel { top: 140px; right: 20px; transform: none; }
+  .progress-container { bottom: 80px; }
+  .control-panel { bottom: 20px; }
+}

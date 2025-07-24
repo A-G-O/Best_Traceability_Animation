@@ -1,0 +1,41 @@
+{
+  "name": "best_traceability_animation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/A-G-O/Best_Traceability_Animation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/A-G-O/Best_Traceability_Animation/issues"
+  },
+  "homepage": "https://github.com/A-G-O/Best_Traceability_Animation#readme",
+  "dependencies": {
+    "framer-motion": "^12.23.7",
+    "leaflet": "^1.9.4",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-leaflet": "^5.0.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.54.1",
+    "@types/leaflet": "^1.9.20",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^4.7.0",
+    "playwright": "^1.54.1",
+    "typescript": "^5.8.3",
+    "vite": "^7.0.5"
+  }
+}
